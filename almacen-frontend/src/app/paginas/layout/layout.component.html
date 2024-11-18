@@ -18,7 +18,7 @@
         <mat-icon>account_box</mat-icon>
         <span>My account</span>
       </button>
-      <button mat-menu-item (click)="sidenav.opened = false" >
+      <button mat-menu-item (click)="logout()" >
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>
       </button>
@@ -29,57 +29,16 @@
   <mat-sidenav-container class="example-sidenav-container">
     <mat-sidenav #sidenav style="width: 250px" mode="over">
       <img src="images.png" width="128" style="margin-left: 20px">
-      <mat-divider></mat-divider>
-      <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
-              routerLink="/pages/product" [routerLinkActive]="['active']" style="cursor: pointer">
-        <mat-icon>scanner</mat-icon>
-        <span>Producto</span>
-      </button>
 
-      <mat-divider></mat-divider>
+      @for (m of accesos; track $index) {
+        <mat-divider></mat-divider>
+        <button class="myButton" [routerLinkActive]="['active']" mat-menu-item (click)="sidenav.toggle()"
+                routerLink="{{m.url}}" style="cursor: pointer">
+          <mat-icon>{{m.icono}}</mat-icon>
+          <span>{{m.nombre}}</span>
+        </button>
+      }
 
-      <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
-              routerLink="/pages/categoria" style="cursor: pointer">
-        <mat-icon>view_carousel</mat-icon>
-        <span>Main Categoria</span>
-      </button>
-
-      <mat-divider></mat-divider>
-      <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
-              routerLink="/pages/marca" style="cursor: pointer">
-        <mat-icon>account_balance</mat-icon>
-        <span>Main Marca</span>
-      </button>
-      <mat-divider></mat-divider>
-
-      <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
-              routerLink="/pages/unidadmedida" style="cursor: pointer">
-        <mat-icon>account_balance</mat-icon>
-        <span>Main Unidad Medida</span>
-      </button>
-
-      <mat-divider></mat-divider>
-      <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
-              routerLink="/pages/venta" style="cursor: pointer">
-        <mat-icon>account_balance</mat-icon>
-        <span>Main Venta</span>
-      </button>
-
-      <mat-divider></mat-divider>
-      <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
-              routerLink="/pages/reporte" style="cursor: pointer">
-        <mat-icon>account_balance</mat-icon>
-        <span>Main Reports</span>
-      </button>
-
-      <mat-divider></mat-divider>
-      <button class="myButton" mat-menu-item (click)="sidenav.toggle()"
-              routerLink="/pages/productox" style="cursor: pointer">
-        <mat-icon>account_balance</mat-icon>
-        <span>Main Producto</span>
-      </button>
-
-      <mat-divider></mat-divider>
     </mat-sidenav>
 
 

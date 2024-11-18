@@ -13,7 +13,6 @@ import pe.edu.upeu.sysalmacen.modelo.Usuario;
 import pe.edu.upeu.sysalmacen.modelo.UsuarioRol;
 import pe.edu.upeu.sysalmacen.repositorio.ICrudGenericoRepository;
 import pe.edu.upeu.sysalmacen.repositorio.IUsuarioRepository;
-import pe.edu.upeu.sysalmacen.repositorio.IUsuarioRolRepository;
 import pe.edu.upeu.sysalmacen.servicio.IRolService;
 import pe.edu.upeu.sysalmacen.servicio.IUsuarioRolService;
 import pe.edu.upeu.sysalmacen.servicio.IUsuarioService;
@@ -75,12 +74,6 @@ public class UsuarioServiceImp extends CrudGenericoServiceImp<Usuario, Long> imp
                 r=rolService.getByNombre(Rol.RolNombre.USER).orElse(null);
             } break;
         }
-
-        /*UsuarioRol u=new UsuarioRol();
-        u.setRol(r);
-        u.setUsuario(savedUser);
-        iurService.save(u);
-        */
 
         iurService.save(UsuarioRol.builder()
                 .usuario(savedUser)

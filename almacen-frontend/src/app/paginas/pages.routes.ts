@@ -10,7 +10,9 @@ import {MainVentaComponent} from "./main-venta/main-venta.component";
 import {MainReportesComponent} from "./main-reportes/main-reportes.component";
 import {FormxProductoComponent} from "./main-producto/formx-producto/formx-producto.component";
 import {MainProductoComponent} from "./main-producto/main-producto.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 export const pagesRoutes: Routes = [
+  { path: 'dashboard', component: DashboardComponent },
   {
     path: 'product',
     component: ListaProductoComponent,
